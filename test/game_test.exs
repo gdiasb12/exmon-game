@@ -20,18 +20,18 @@ defmodule ExMon.GameTest do
       Game.start(computer, player)
 
       expected_response = %{
+        status: :started,
+        turn: :player,
         computer: %Player{
           life: 100,
-          moves: %{move_avg: :cross, move_heal: :uppercut, move_rnd: :heal},
-          name: "Rodorfo"
+          name: "Rodorfo",
+          moves: %{move_avg: :cross, move_heal: :heal, move_rnd: :uppercut}
         },
         player: %Player{
           life: 100,
-          moves: %{move_avg: :armbar, move_heal: :kneebar, move_rnd: :heal},
-          name: "Gabriel"
-        },
-        status: :started,
-        turn: :player
+          name: "Gabriel",
+          moves: %{move_avg: :armbar, move_heal: :heal, move_rnd: :kneebar}
+        }
       }
 
       assert expected_response == Game.info()
@@ -48,13 +48,13 @@ defmodule ExMon.GameTest do
       expected_response = %{
         computer: %Player{
           life: 100,
-          moves: %{move_avg: :cross, move_heal: :uppercut, move_rnd: :heal},
-          name: "Rodorfo"
+          name: "Rodorfo",
+          moves: %{move_avg: :cross, move_heal: :heal, move_rnd: :uppercut}
         },
         player: %Player{
           life: 100,
-          moves: %{move_avg: :armbar, move_heal: :kneebar, move_rnd: :heal},
-          name: "Gabriel"
+          name: "Gabriel",
+          moves: %{move_avg: :armbar, move_heal: :heal, move_rnd: :kneebar}
         },
         status: :started,
         turn: :player
@@ -65,13 +65,13 @@ defmodule ExMon.GameTest do
       new_state = %{
         computer: %Player{
           life: 85,
-          moves: %{move_avg: :cross, move_heal: :uppercut, move_rnd: :heal},
-          name: "Rodorfo"
+          name: "Rodorfo",
+          moves: %{move_avg: :cross, move_heal: :heal, move_rnd: :uppercut}
         },
         player: %Player{
-          life: 50,
-          moves: %{move_avg: :armbar, move_heal: :kneebar, move_rnd: :heal},
-          name: "Gabriel"
+          life: 70,
+          name: "Gabriel",
+          moves: %{move_avg: :armbar, move_heal: :heal, move_rnd: :kneebar}
         },
         status: :started,
         turn: :player
@@ -94,7 +94,7 @@ defmodule ExMon.GameTest do
 
       expected_response = %Player{
         life: 100,
-        moves: %{move_avg: :armbar, move_heal: :kneebar, move_rnd: :heal},
+        moves: %{move_avg: :armbar, move_heal: :heal, move_rnd: :kneebar},
         name: "Gabriel"
       }
 
@@ -122,7 +122,7 @@ defmodule ExMon.GameTest do
 
       expected_response = %Player{
         life: 100,
-        moves: %{move_rnd: :heal, move_avg: :armbar, move_heal: :kneebar},
+        moves: %{move_avg: :armbar, move_heal: :heal, move_rnd: :kneebar},
         name: "Gabriel"
       }
 
